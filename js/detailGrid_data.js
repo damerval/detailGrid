@@ -41,7 +41,7 @@ var desktopColumns = [
   { text: "Status Date", dataField: "statusDate", cellsFormat: 'MM/dd/yyyy', width: 70 },
   { text: "Arrival Date", dataField: "arrivalDate", cellsFormat: 'MM/dd/yyyy', width: 70 },
   { text: "Release Date", dataField: "releaseDate", cellsFormat: 'MM/dd/yyyy', width: 75 },
-  { text: "Custody", dataField: "custodyLevel", width: 50 },
+  { text: "Custody", dataField: "custodyLevel", width: 50 }/*,
   { text: "Class. Due", dataField: "classificationDueDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
   { text: "OMP init.", dataField: "initialOMPDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
   { text: "OMP upd.", dataField: "OMPUpdateDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
@@ -54,7 +54,7 @@ var desktopColumns = [
   { text: "PED", dataField: "paroleEligibilityDate", cellsFormat: 'MM/dd/yyyy', width: 75 },
   { text: "Furlough Elg.", dataField: "furloughEligibility", cellsFormat: 'MM/dd/yyyy', width: 75 },
   { text: "Ad. Seg.", dataField: "adminSegregation", cellsAlign: 'center', width: 50 },
-  { text: "NOR", dataField: "NOR", width: 50 }
+  { text: "NOR", dataField: "NOR", width: 50 }*/
 ];
 
 var _detailGrid;

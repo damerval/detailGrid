@@ -1,0 +1,12 @@
+html, body { margin: 0; padding: 0 }
+
+#section1 { padding: 10px }
+#detailGrid { margin: 10px 0; font-size: 10px }
+
+.jqx-grid-cell.jqx-grid-cell-metro { font-size: 11px }
+
+.hidden { display: none }
+
+.dgDetailBox {
+  border: 1px solid black; height: 100%; box-sizing: border-box; width: 1581px; padding: 10px
+}

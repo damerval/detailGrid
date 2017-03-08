@@ -15,7 +15,7 @@ $(document).ready(function () {
    desktopAdapter = new $.jqx.dataAdapter(desktopSource);
 
   _detailGrid = $("#detailGrid").jqxGrid({
-    source: desktopAdapter, columns: desktopColumns, theme: 'metro', width: 1635, height: 600,
-    rowdetails: true, rowdetailstemplate: { rowdetails: $("#dgDetailTemplate").html(), rowdetailsheight: 100 }
+    source: desktopAdapter, columns: desktopColumns, theme: 'metro', width: 755, height: 600,
+    rowDetails: true, rowDetailsTemplate: { rowDetails: $("#dgDetailTemplate").html(), rowDetailsHeight: 100 }
   });
 });

@@ -14,8 +14,13 @@
   <script src="lib/jqwidgets/jqxbuttons.js" type="text/javascript"></script>
   <script src="lib/jqwidgets/jqxscrollbar.js" type="text/javascript"></script>
   <script src="lib/jqwidgets/jqxmenu.js" type="text/javascript"></script>
+  <script src="lib/jqwidgets/jqxlistbox.js" type="text/javascript"></script>
+  <script src="lib/jqwidgets/jqxdropdownlist.js" type="text/javascript"></script>
   <script src="lib/jqwidgets/jqxgrid.js" type="text/javascript"></script>
   <script src="lib/jqwidgets/jqxgrid.selection.js" type="text/javascript"></script>
+  <script src="lib/jqwidgets/jqxgrid.sort.js" type="text/javascript"></script>
+  <script src="lib/jqwidgets/jqxgrid.filter.js" type="text/javascript"></script>
+
 
 <!----------------------------------------Styles----------------------------------------------------------------------->
   <link rel="stylesheet" href="css/detailGrid.css" type="text/css">
@@ -31,8 +36,28 @@
 <div id="section1">
   <img src="images/lightBulb.png" title="Light bulb" alt="lightBulb" height="51" width="51" />
   <div id="detailGrid"></div>
-  <div id="dgDetailTemplate" class="hidden">
-    <div class="dgDetailBox">This is the detail template</div>
+  <div id="dgDetailTemplate" class="">
+    <div class="dgDetailBox">
+      <div class="detailColumn">
+        <div class="detailRow"><div class="detailLabel">Classification Due Date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">Initial OMP Date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">OMP update date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">Parole Eligibility Date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">Furlough Eligibility Date: </div><div class="detailValue">VALUE</div></div>
+      </div>
+      <div class="detailColumn">
+        <div class="detailRow"><div class="detailLabel">LSISV Date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">LSISV Eval.: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">LSISV Score: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">Ad. Seg. Status: </div><div class="detailValue">VALUE</div></div>
+      </div>
+      <div class="detailColumn">
+        <div class="detailRow"><div class="detailLabel">LSIR Date: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">LSIR Eval.: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">LSIR Score: </div><div class="detailValue">VALUE</div></div>
+        <div class="detailRow"><div class="detailLabel">NOR Status: </div><div class="detailValue">VALUE</div></div>
+      </div>
+    </div>
   </div>
 </div>
 

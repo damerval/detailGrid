@@ -1,0 +1,19 @@
+/**
+ * Created by pdamerval on 3/9/2017.
+ */
+
+$(document).ready(function () {
+  
+  _locationPicker.on('select', function () {
+    desktopSource.data = { loc: _locationPicker.val() };
+    _detailGrid.jqxGrid('source', new $.jqx.dataAdapter(desktopSource));
+  });
+
+  _sortPicker.on('change', function () {
+    //alert(_sortPicker.val());
+    _detailGrid.jqxGrid('sortBy', _sortPicker.val(), 'asc');
+  });
+
+  _locationPicker.jqxDropDownList('selectItem', _locationPicker.jqxDropDownList('getItem', 3));
+
+});

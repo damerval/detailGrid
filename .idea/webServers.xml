@@ -5,6 +5,9 @@
       <webServer id="22c9139b-1666-4e21-ad57-09d2654b4a25" name="LocalWAMP" url="http://localhost">
         <fileTransfer port="0" mountedRoot="C:\wamp\www" accessType="MOUNT" />
       </webServer>
+      <webServer id="d5cda967-206a-47af-abed-38ee82caa64d" name="JnuWamp" url="http://10.6.202.100">
+        <fileTransfer port="0" mountedRoot="W:\www" accessType="MOUNT" />
+      </webServer>
     </option>
   </component>
 </project>

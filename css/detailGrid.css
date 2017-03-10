@@ -1,7 +1,7 @@
 html, body { margin: 0; padding: 0 }
 
 #section1 { padding: 10px }
-#detailGrid { margin: 10px 0; font-size: 10px }
+#detailGrid { margin-left: 5px }
 
 .jqx-grid-cell.jqx-grid-cell-metro { font-size: 11px }
 
@@ -9,7 +9,7 @@ html, body { margin: 0; padding: 0 }
 
 #dgDetailTemplate { font-size: 11px; font-family: 'segoe ui', arial, sans-serif }
 
-.dgDetailBox { border: 1px solid lightgrey; height: 100%; box-sizing: border-box; width: 706px; padding: 5px }
+.dgDetailBox { border: solid lightgrey; border-width: 1px 1px 0 1px; height: 100%; box-sizing: border-box; width: 726px; padding: 5px }
 .dgDetailBox::after { content: ""; height: 0; width: 0; float: none; clear: both; display: block }
 
 .detailColumn { float: left }
@@ -20,3 +20,10 @@ html, body { margin: 0; padding: 0 }
 .detailLabel { float: left; width: 130px }
 
 .detailValue { float: left; width: 100px; font-weight: bold; font-size: 12px; color: darkblue }
+
+#buttonRow { width: 600px }
+#buttonRow::after { content: ""; clear: both; display: block; float: none }
+.control { float: left; margin-right: 10px; margin-bottom: 10px }
+.controlLabel { float: left; font-size: 10px; font-family: 'segoe ui', arial, sans-serif; padding: 5px;  }
+.controlLabel.wide { width: 75px }
+.controlLabel.narrow { width: 35px }

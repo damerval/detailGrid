@@ -156,6 +156,28 @@ var sortOrderLabels = ["Offender #",
   "Ad. Seg. Status",
   "NOR Status"];
 
+var sortOrderShorts = ["ofn",
+  "sct",
+  "nam",
+  "ipo",
+  "sta",
+  "arr",
+  "rel",
+  "cus",
+  "cdd",
+  "iod",
+  "oud",
+  "lsv",
+  "lse",
+  "lss",
+  "lrv",
+  "lre",
+  "lrs",
+  "ped",
+  "fed",
+  "asg",
+  "nor"];
+
 /* Sort order drop-down widget */
 var _sortPicker;
 
@@ -219,3 +241,6 @@ var ipoList = ["ALEXIE, ALTON  E",
 
 /* IPO picker widget */
 var _ipoPicker;
+
+/* Variable to store the style for sort order highlighting in detail panels */
+var sortStyle;

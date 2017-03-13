@@ -9,5 +9,9 @@
 require_once ('sqlSrv.php');
 
 $location = isset($_GET['loc']) ? $_GET['loc'] : 'ANCHORAGE JAIL';
-
-echo getSet("SELECT * FROM omp_lsi WHERE loc = '" . $location . "'", null);
+$ipo = isset($_GET['ipo']) ? $_GET['ipo'] : null;
+/*
+$sql = "SELECT * FROM omp_lsi WHERE loc = '" . $location . "'" . (null != $ipo ? " AND ipo = '" . $ipo . "'" : '');
+echo $sql;
+*/
+echo getSet("SELECT * FROM omp_lsi WHERE loc = '" . $location . "'" . (null != $ipo ? " AND ipo = '" . $ipo . "'" : ''), null);

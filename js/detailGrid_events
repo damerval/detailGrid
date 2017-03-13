@@ -3,17 +3,47 @@
  */
 
 $(document).ready(function () {
-  
+
+  /* FILL GRID WITH DATA WHEN A LOCATION IS CHOSEN */
   _locationPicker.on('select', function () {
+    /* Remove any existing sort */
+    _detailGrid.jqxGrid('removeSort');
+    _sortPicker.jqxDropDownList('unselectItem', _sortPicker.jqxDropDownList('getSelectedItem'));
+    clearSortHighlight();
+
+    /* Point to new data and load grid */
     desktopSource.data = { loc: _locationPicker.val() };
     _detailGrid.jqxGrid('source', new $.jqx.dataAdapter(desktopSource));
+
   });
 
-  _sortPicker.on('change', function () {
+  /* WHEN SORT ORDER IS CHOSEN, SORT THE GRID BY THE SELECTED FIELD */
+  _sortPicker.on('select', function () {
     //alert(_sortPicker.val());
     _detailGrid.jqxGrid('sortBy', _sortPicker.val(), 'asc');
+
+    /* Highlight the corresponding field in details if not assigned column */
+    var sortClass;
+    for (var i=0; i<sortOrders.length; i++) {
+      if (sortOrders[i] === _sortPicker.val()) {
+        sortClass = sortOrderShorts[i];
+      }
+    }
+    var selector = ".detailRow." + sortClass;
+    highlightSort(selector);
   });
 
+  /* INITIALIZE THE LOCATION PICKER BY PRE-SELECTING 'ANCHORAGE JAIL' */
   _locationPicker.jqxDropDownList('selectItem', _locationPicker.jqxDropDownList('getItem', 3));
+
+  _ipoPicker.on('select', function () {
+    /* Remove existing sort  */
+    _detailGrid.jqxGrid('removeSort');
+    _sortPicker.jqxDropDownList('unselectItem', _sortPicker.jqxDropDownList('getSelectedItem'));
+
+    /* Point to new data and load grid */
+    desktopSource.data = { loc: _locationPicker.val(), ipo: _ipoPicker.val() };
+    _detailGrid.jqxGrid('source', new $.jqx.dataAdapter(desktopSource));
+  })
 
 });

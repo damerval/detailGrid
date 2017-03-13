@@ -27,3 +27,5 @@ html, body { margin: 0; padding: 0 }
 .controlLabel { float: left; font-size: 10px; font-family: 'segoe ui', arial, sans-serif; padding: 5px;  }
 .controlLabel.wide { width: 75px }
 .controlLabel.narrow { width: 35px }
+
+.sorted { background-color: lightgrey }

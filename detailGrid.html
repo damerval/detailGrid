@@ -37,7 +37,7 @@
   <!--Companion JS-->
   <script src="js/detailGrid_data.js"></script>
   <script src="js/detailGrid_init.js"></script>
-  <script src="js/detailGrid_events"></script>
+  <script src="js/detailGrid_events.js"></script>
 
 </head>
 
@@ -53,24 +53,34 @@
   <div id="detailGrid"></div>
   <div id="dgDetailTemplate" class="hidden">
     <div class="dgDetailBox">
+      <div class="detailHeader">
+        <div class="detailHeaderLabel">Offender Name</div><div class="detailHeaderValue">LONG NAME FOR OFFENDER</div>
+        <div class="detailHeaderLabel">IPO Name</div><div class="detailHeaderValue">LONG NAME FOR IPO</div>
+        <div class="detailHeaderLabel">Sex Offender?</div><div class="detailHeaderValue">YES/NO</div>
+      </div>
       <div class="detailColumn">
         <div class="detailRow cdd"><div class="detailLabel">Class. Due Date: </div><div class="detailValue cdd">VALUE</div></div>
         <div class="detailRow iod"><div class="detailLabel">Init. OMP Date: </div><div class="detailValue iod">VALUE</div></div>
         <div class="detailRow oud"><div class="detailLabel">OMP Upd. date: </div><div class="detailValue oud">VALUE</div></div>
-        <div class="detailRow ped"><div class="detailLabel">Parole Elg. Date: </div><div class="detailValue ped">VALUE</div></div>
-        <div class="detailRow fed"><div class="detailLabel">Furlough Elg. Date: </div><div class="detailValue fed">VALUE</div></div>
+        <div class="detailRow asg"><div class="detailLabel">Ad. Seg. Status: </div><div class="detailValue asg">VALUE</div></div>
+      </div>
+      <div class="detailColumn">
+        <div class="detailRow pds"><div class="detailLabel">Disc. Parole: </div><div class="detailValue pds">VALUE</div></div>
+        <div class="detailRow pma"><div class="detailLabel">Manda. Parole: </div><div class="detailValue pma">VALUE</div></div>
+        <div class="detailRow pad"><div class="detailLabel">Admin. Parole: </div><div class="detailValue pad">VALUE</div></div>
+        <div class="detailRow pge"><div class="detailLabel">Geri. Parole: </div><div class="detailValue pge">VALUE</div></div>
       </div>
       <div class="detailColumn">
         <div class="detailRow lsv"><div class="detailLabel">LSISV Date: </div><div class="detailValue lsv">VALUE</div></div>
         <div class="detailRow lse"><div class="detailLabel">LSISV Eval.: </div><div class="detailValue lse">VALUE</div></div>
         <div class="detailRow lss"><div class="detailLabel">LSISV Score: </div><div class="detailValue lss">VALUE</div></div>
-        <div class="detailRow asg"><div class="detailLabel">Ad. Seg. Status: </div><div class="detailValue asg">VALUE</div></div>
+        <div class="detailRow scd"><div class="detailLabel">STATIC date: </div><div class="detailValue scd">VALUE</div></div>
       </div>
       <div class="detailColumn">
         <div class="detailRow lrv"><div class="detailLabel">LSIR Date: </div><div class="detailValue lrv">VALUE</div></div>
         <div class="detailRow lre"><div class="detailLabel">LSIR Eval.: </div><div class="detailValue lre">VALUE</div></div>
         <div class="detailRow lrs"><div class="detailLabel">LSIR Score: </div><div class="detailValue lrs">VALUE</div></div>
-        <div class="detailRow nor"><div class="detailLabel">NOR Status: </div><div class="detailValue nor">VALUE</div></div>
+        <div class="detailRow scs"><div class="detailLabel">STATIC Score: </div><div class="detailValue scs">VALUE</div></div>
       </div>
     </div>
   </div>

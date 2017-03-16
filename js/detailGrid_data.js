@@ -1,8 +1,6 @@
 /**
  * Created by pdamerval on 3/3/2017.
  */
-/* Data loaded flag to make sure data is loaded before attempting to filter or sort */
-var dataLoaded = false;
 
 /* Detail grid AJAX data definitions */
 var desktopSource = {
@@ -32,23 +30,24 @@ var desktopSource = {
   ],
   id: "offenderNumber",
   url: "require/getDesktopData.php",
-  data: { "loc": "COOK INLET PRETRIAL"},
-  pageSize: 20,
-  loadComplete: function () {
-    dataLoaded = true;
-  }
+  data: { "loc": "NODEFAULT"},
+  pageSize: 20
 };
+
+var desktopAdapter;
 
 /* Detail grid column definitions */
 var desktopColumns = [
-  { text: "Offender #", dataField: "offenderNumber", width: 75 },
-  { text: "Section", dataField: "section", width: 40 },
-  { text: "Offender Name", dataField: "offenderName", width: 200 },
-  { text: "IPO", dataField: "IPO", width: 125 },
-  { text: "Status Date", dataField: "statusDate", cellsFormat: 'MM/dd/yyyy', width: 70 },
-  { text: "Arrival Date", dataField: "arrivalDate", cellsFormat: 'MM/dd/yyyy', width: 70 },
-  { text: "Release Date", dataField: "releaseDate", cellsFormat: 'MM/dd/yyyy', width: 75 },
-  { text: "Custody", dataField: "custodyLevel", width: 70 }/*,
+  { text: "Off. #", dataField: "offenderNumber", width: 47 },
+  { text: "Scn.", dataField: "section", width: 28 },
+  { text: "Offender Name", dataField: "offenderName", width: 100 },
+  { text: "IPO", dataField: "IPO", width: 100 },
+  { text: "Class. Due", dataField: "classificationDueDate", cellsFormat: 'MM/dd/yyyy', width: 67 },
+  { text: "Custody", dataField: "custodyLevel", width: 70 },
+  { text: "Risk", dataField: "", cellsFormat: 'MM/dd/yyyy', width: 50 },
+  { text: "Furlough", dataField: "furloughEligibility", cellsFormat: 'MM/dd/yyyy', width: 67 },
+  { text: "Release Dt.", dataField: "releaseDate", cellsFormat: 'MM/dd/yyyy', width: 67 },
+  { text: "Flags", width: 179 }/*,
   { text: "Class. Due", dataField: "classificationDueDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
   { text: "OMP init.", dataField: "initialOMPDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
   { text: "OMP upd.", dataField: "OMPUpdateDate", cellsFormat: 'MM/dd/yyyy', width: 65 },
@@ -59,7 +58,6 @@ var desktopColumns = [
   { text: "LSIR Eval.", dataField: "LSIREval", cellsAlign: 'center', width: 75 },
   { text: "LSIR Score", dataField: "LSIRScore", cellsAlign: 'center', width: 75 },
   { text: "PED", dataField: "paroleEligibilityDate", cellsFormat: 'MM/dd/yyyy', width: 75 },
-  { text: "Furlough Elg.", dataField: "furloughEligibility", cellsFormat: 'MM/dd/yyyy', width: 75 },
   { text: "Ad. Seg.", dataField: "adminSegregation", cellsAlign: 'center', width: 50 },
   { text: "NOR", dataField: "NOR", width: 50 }*/
 ];
@@ -182,62 +180,7 @@ var sortOrderShorts = ["ofn",
 var _sortPicker;
 
 /* IPO options */
-var ipoList = ["ALEXIE, ALTON  E",
-  "APILADO, DJANETTE A",
-  "ATKINSON, JOHN",
-  "BAILIE, KRISTINE M",
-  "BANACHOWICZ, DEIRDRE L",
-  "BROOKS, KRISTIE L",
-  "BROWN, MARCY M",
-  "CLAUSON, MICHAEL D",
-  "COATES-SERVIN, REBECCA A",
-  "COONEY, IVA",
-  "DALE, NORA",
-  "DYE, TIMOTHY A",
-  "EVANS, CHRISTOPHER A",
-  "FERGUSON, KATHERINE Y R",
-  "FRANCOIS, JUSTIN L",
-  "GOLDSMITH, KATHERINE L",
-  "HALLEY, CATHERINE M",
-  "HANNAH, TONYA A",
-  "HAVENS, SYDNEY Y",
-  "HINES, REBECCA E",
-  "HOLTHAUS, GLORIA M",
-  "HOPKINS, ASHJA",
-  "HOUSER, CYNTHIA J",
-  "HUMPHRIES, CAROLYN K",
-  "INGALLS-ADKINS, AMBER J",
-  "JENNETTEN, JOSEPH C",
-  "JENSEN, JENNIFER",
-  "JENSKI, JAN",
-  "JOHNSON, CHRISTOPHER T",
-  "JOHNSON, JAMES L",
-  "JOHNSON, TRACEY L",
-  "KALAMARIDES, MOLLY K",
-  "KEENE, JILL L",
-  "LAND, HEATHER L",
-  "LAPINSKAS, MARISSA L",
-  "LEE, IRENE M",
-  "LINDSEY, JONATHAN",
-  "LOWE, JULIA M",
-  "MARTIN, JUDITH A",
-  "NYE, BRAD A",
-  "NYHOLM, MATTHEW",
-  "SAKIS, EMILY D",
-  "SANCHEZ, JESSICA L",
-  "SENCIBAUGH, RONDA L",
-  "SHERO, TODD M",
-  "SMITH, JESSICA R",
-  "SMITH, MELODY A",
-  "SULLIVAN, KATHERINE E",
-  "TALLENT, MICHAEL, W",
-  "TWEEDY, REGAN I",
-  "VONBORSTEL, GREGORY",
-  "WEBSTER, DARYL",
-  "WHEELER, KEVIN P",
-  "WILSON, DAVID",
-  "WOODHULL, ELISHA, M",
-  "ZENER, MICHAEL W"];
+var ipoList = ["NO IPO ASSIGNED", "ALL IPOs"];
 
 /* IPO picker widget */
 var _ipoPicker;

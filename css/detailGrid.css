@@ -9,17 +9,20 @@ html, body { margin: 0; padding: 0 }
 
 #dgDetailTemplate { font-size: 11px; font-family: 'segoe ui', arial, sans-serif }
 
-.dgDetailBox { border: solid lightgrey; border-width: 1px 1px 0 1px; height: 100%; box-sizing: border-box; width: 726px; padding: 5px }
+.dgDetailBox { border: solid lightgrey; border-width: 1px 1px 0 1px; height: 100%; box-sizing: border-box; width: 776px; padding: 5px }
 .dgDetailBox::after { content: ""; height: 0; width: 0; float: none; clear: both; display: block }
 
 .detailColumn { float: left }
+.detailHeader { width: 100%; float: none; height: 20px }
 
 .detailRow { height: 18px }
 .detailRow::after { content: ""; float: none; clear: both; display: block }
 
-.detailLabel { float: left; width: 130px }
+.detailLabel { float: left; width: 110px }
+.detailHeaderLabel { float: left }
 
-.detailValue { float: left; width: 100px; font-weight: bold; font-size: 12px; color: darkblue }
+.detailValue { float: left; width: 80px; font-weight: bold; font-size: 12px; color: darkblue }
+.detailHeaderValue { float: left; font-weight: bold; font-size: 12px; color: darkblue }
 
 #buttonRow { width: 600px }
 #buttonRow::after { content: ""; clear: both; display: block; float: none }

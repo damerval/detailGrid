@@ -28,7 +28,7 @@ $(document).ready(function () {
         sortClass = sortOrderShorts[i];
       }
     }
-    var selector = ".detailRow." + sortClass;
+    var selector = ".detailRow." + sortClass + ", .detailHeaderLabel." + sortClass;
     highlightSort(selector);
   });
 

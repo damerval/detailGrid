@@ -1,0 +1,5 @@
+html, body { margin: 0; padding: 0 }
+
+body { background: url("../images/acomsBackground.jpg") no-repeat }
+
+.test { border: 1px solid black; padding: 20px; margin: 30px 0 0 180px; width: 512px }

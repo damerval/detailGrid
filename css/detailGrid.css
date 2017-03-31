@@ -1,4 +1,5 @@
 html, body { margin: 0; padding: 0 }
+body { background: url("../images/acomsBackground.jpg") no-repeat; padding: 30px 0 0 180px }
 
 #section1 { padding: 10px }
 #detailGrid { margin-left: 5px }
@@ -18,11 +19,11 @@ html, body { margin: 0; padding: 0 }
 .detailRow { height: 18px }
 .detailRow::after { content: ""; float: none; clear: both; display: block }
 
-.detailLabel { float: left; width: 110px }
-.detailHeaderLabel { float: left }
+.detailLabel { float: left; width: 105px }
+.detailHeaderLabel { float: left; min-width: 80px }
 
 .detailValue { float: left; width: 80px; font-weight: bold; font-size: 12px; color: darkblue }
-.detailHeaderValue { float: left; font-weight: bold; font-size: 12px; color: darkblue }
+.detailHeaderValue { float: left; font-weight: bold; font-size: 12px; color: darkblue; padding: 0 20px 0 10px }
 
 #buttonRow { width: 600px }
 #buttonRow::after { content: ""; clear: both; display: block; float: none }
@@ -32,3 +33,14 @@ html, body { margin: 0; padding: 0 }
 .controlLabel.narrow { width: 35px }
 
 .sorted { background-color: lightgrey }
+
+.flags { background-color: whitesmoke; height: 25px; padding-left: 5px; }
+
+.flag { display: inline-block; font-size: 9px; margin-top: 6px; border: 1px solid lightgrey; padding: 1px; color: lightgrey }
+
+.OFF { color: lightgrey }
+.WHI { color: darkslategrey; background-color: white }
+.YEL { color: darkslategrey; background-color: yellow }
+.RED { color: white; background-color: orangered }
+
+.calcCell { margin-left: 4px; margin-top: 4px }

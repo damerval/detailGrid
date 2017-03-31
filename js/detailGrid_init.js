@@ -35,6 +35,45 @@ var rowDetailsFunc = function (index, parentElement, gridElement, dataRecord) {
   details.find(".detailValue.lre").text(null2str(dataRecord['LSIREval']));
   details.find(".detailValue.lrs").text(null2str(dataRecord['LSIRScore'], null));
   details.find(".detailValue.nor").text(null2str(dataRecord['NOR']));
+  details.find(".detailValue.scd").text(dfWithNull(dataRecord['staticDate'], 'mm/dd/yyyy'));
+  details.find(".detailValue.scs").text(null2str(dataRecord['staticScore']));
+  details.find(".detailValue.pds").text(dfWithNull(dataRecord['discretionaryParoleDate'], 'mm/dd/yyyy'));
+  details.find(".detailValue.pma").text(dfWithNull(dataRecord['mandatoryParoleDate'], 'mm/dd/yyyy'));
+  details.find(".detailValue.pad").text(dfWithNull(dataRecord['adminParoleDate'], 'mm/dd/yyyy'));
+  details.find(".detailValue.pge").text(dfWithNull(dataRecord['geriatricParoleDate'], 'mm/dd/yyyy'));
+  details.find(".detailHeaderValue.fna").text(null2str(dataRecord['offenderFullName']));
+  details.find(".detailHeaderValue.ipu").text(null2str(dataRecord['IPO']));
+  details.find(".detailHeaderValue.so").text(null2str(dataRecord['sexOffender']));
+};
+
+var flagsRenderer = function (row/*, column, value*/) {
+  var html =  $("#flagsTemplate").html();
+  var rowData = desktopAdapter.records[row];
+
+  html = html.replace("flag mr", "flag mr" + " " + rowData['mrFlag']);
+  html = html.replace("flag cla", "flag cla" + " " + rowData['classFlag']);
+  html = html.replace("flag fur", "flag fur" + " " + rowData['furloughFlag']);
+  html = html.replace("flag asg", "flag asg" + " " + rowData['adSegFlag']);
+  html = html.replace("flag lsisv", "flag lsisv" + " " + rowData['lsisvFlag']);
+  html = html.replace("flag lsir", "flag lsir" + " " + rowData['lsirFlag']);
+  html = html.replace("flag stc", "flag stc" + " " + rowData['staticFlag']);
+  html = html.replace("flag fin", "flag fin" + " " + rowData['finalClassFlag']);
+  html = html.replace("flag vic", "flag vic" + " " + rowData['victimFlag']);
+
+  return html;
+};
+
+var riskRenderer = function (row) {
+  var rowData = desktopAdapter.records[row];
+  var riskText = "";
+  if (null !== rowData['staticDate']) {
+    riskText = "ST-" + rowData['staticScore'];
+  } else if (null !== rowData['LSIRDate']) {
+    riskText = "R-" + rowData['LSIRScore'];
+  } else if (null !== rowData['LSISVDate']) {
+    riskText = "SV-" + rowData['LSISVScore'];
+  }
+  return "<DIV class=\"calcCell\">" + riskText + "</DIV>";
 };
 
 $(document).ready(function () {
@@ -61,10 +100,12 @@ $(document).ready(function () {
   });
 
   /* SETUP DETAIL GRID*/
+  desktopColumns.push({ text: "Risk", cellsRenderer: riskRenderer, width: 32 });
+  desktopColumns.push({ text: "Flags", cellsRenderer: flagsRenderer, width: 211 }); //dynamic flags column
   _detailGrid.jqxGrid({
-    source: desktopAdapter, columns: desktopColumns, theme: 'metro', width: 805, autoHeight: true,
+    source: desktopAdapter, columns: desktopColumns, theme: 'metro', width: 785, autoHeight: true, rowsHeight: 24,
     rowdetails: true, rowdetailstemplate: { rowdetails: $("#dgDetailTemplate").html(), rowdetailsheight: 100 },
-    initrowdetails: rowDetailsFunc/*, sortable: true*/, pageable: true, pagermode: 'simple'
+    initrowdetails: rowDetailsFunc/*, sortable: true*/, pageable: true, pagerMode: 'simple'
   });
 
   /* SETUP LOCATION PICKER */

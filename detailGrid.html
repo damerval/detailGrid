@@ -9,6 +9,8 @@
   <!-- JQWidgets CSS -->
   <link rel="stylesheet" href="lib/jqwidgets/styles/jqx.base.css" type="text/css">
   <link rel="stylesheet" href="lib/jqwidgets/styles/jqx.metro.css" type="text/css">
+  <link rel="stylesheet" href="css/fresh2.css" type="text/css">
+  <link rel="stylesheet" href="css/controls.css" type="text/css">
   <!-- JQuery needed for JQWidgets -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- JQWidgets -->
@@ -54,9 +56,9 @@
   <div id="dgDetailTemplate" class="hidden">
     <div class="dgDetailBox">
       <div class="detailHeader">
-        <div class="detailHeaderLabel">Offender Name</div><div class="detailHeaderValue">LONG NAME FOR OFFENDER</div>
-        <div class="detailHeaderLabel">IPO Name</div><div class="detailHeaderValue">LONG NAME FOR IPO</div>
-        <div class="detailHeaderLabel">Sex Offender?</div><div class="detailHeaderValue">YES/NO</div>
+        <div class="detailHeaderLabel">Offender Name: </div><div class="detailHeaderValue fna">LONG NAME FOR OFFENDER</div>
+        <div class="detailHeaderLabel">IPO Name: </div><div class="detailHeaderValue ipu">LONG NAME FOR IPO</div>
+        <div class="detailHeaderLabel">Sex Offender? </div><div class="detailHeaderValue so">YES/NO</div>
       </div>
       <div class="detailColumn">
         <div class="detailRow cdd"><div class="detailLabel">Class. Due Date: </div><div class="detailValue cdd">VALUE</div></div>
@@ -82,6 +84,19 @@
         <div class="detailRow lrs"><div class="detailLabel">LSIR Score: </div><div class="detailValue lrs">VALUE</div></div>
         <div class="detailRow scs"><div class="detailLabel">STATIC Score: </div><div class="detailValue scs">VALUE</div></div>
       </div>
+    </div>
+  </div>
+  <div id="flagsTemplate" class="hidden">
+    <div class="flags">
+      <div class="flag mr">MR</div>
+      <div class="flag asg">ASG</div>
+      <div class="flag lsisv">LSISV</div>
+      <div class="flag lsir">LSIR</div>
+      <div class="flag stc">STC</div>
+      <div class="flag cla">CLA</div>
+      <div class="flag fur">FUR</div>
+      <div class="flag fin">FIN</div>
+      <div class="flag vic">VIC</div>
     </div>
   </div>
 </div>

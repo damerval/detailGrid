@@ -1,0 +1,5 @@
+[
+  {"sf": "My first String", "nf": 1.00, "df": "2017-03-01", "if": 1, "bf": true},
+  {"sf": "My second String", "nf": 2.00, "df": "2017-03-02", "if": 2, "bf": false},
+  {"sf": "My third String", "nf": 3.00, "df": "2017-03-03", "if": 3, "bf": true}
+]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="../lib/jqwidgets/styles/jqx.base.css" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="../lib/jqwidgets/jqxcore.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxdata.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxbuttons.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxscrollbar.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxmenu.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxlistbox.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxdropdownlist.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxcheckbox.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxgrid.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxgrid.selection.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxgrid.sort.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxgrid.filter.js" type="text/javascript"></script>
+  <script src="../lib/jqwidgets/jqxgrid.pager.js" type="text/javascript"></script>
+
+  <script type="text/javascript" language="JavaScript">
+
+    $(document).ready(function () {
+
+      var testSource = {
+        dataType: 'json',
+        dataFields: [
+          { name: "string_field", map: 'sf', type: "string" },
+          { name: "number_field", map: 'nf', type: 'number' },
+          { name: "date_field", map: 'df', type: 'date' },
+          { name: "integer_field", map: 'if', type: 'int' },
+          { name: "boolean_field", map: 'bf', type: 'bool' }
+        ],
+        id: 'if',
+        url: "test.json"
+      };
+
+      var testColumns = [
+        { text: "String", dataField: 'string_field', width: 150 },
+        { text: "Number", dataField: 'number_field', width: 50, cellsformat: 'd1' },
+        { text: "Date", dataField: 'date_field', width: 100, cellsformat: 'MM/dd/yyyy' },
+        { text: "Integer", dataField: 'integer_field', width: 50 },
+        { text: "Boolean", dataField: 'boolean_field', width: 100, columntype: 'checkbox' }
+      ];
+
+      var testGrid = $("#testGrid");
+
+      var testAdapter = new $.jqx.dataAdapter(testSource);
+
+      testGrid.jqxGrid({
+        source: testAdapter, columns: testColumns, width: 450, autoHeight: true
+      });
+
+    })
+
+  </script>
+
+</head>
+<body>
+  <div id="testGrid"></div>
+</body>
+</html>

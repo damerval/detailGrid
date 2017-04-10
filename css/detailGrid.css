@@ -4,7 +4,7 @@ body { background: url("../images/acomsBackground.jpg") no-repeat; padding: 30px
 #section1 { padding: 10px }
 #detailGrid { margin-left: 5px }
 
-.jqx-grid-cell.jqx-grid-cell-metro { font-size: 11px }
+.jqx-grid-cell.jqx-grid-cell-acoms { font-size: 11px }
 
 .hidden { display: none }
 
@@ -27,6 +27,7 @@ body { background: url("../images/acomsBackground.jpg") no-repeat; padding: 30px
 
 #buttonRow { width: 600px }
 #buttonRow::after { content: ""; clear: both; display: block; float: none }
+#buttonRow button { margin-left: 45px }
 .control { float: left; margin-right: 10px; margin-bottom: 10px }
 .controlLabel { float: left; font-size: 10px; font-family: 'segoe ui', arial, sans-serif; padding: 5px;  }
 .controlLabel.wide { width: 75px }
@@ -34,9 +35,9 @@ body { background: url("../images/acomsBackground.jpg") no-repeat; padding: 30px
 
 .sorted { background-color: lightgrey }
 
-.flags { background-color: whitesmoke; height: 25px; padding-left: 5px; }
+.flags { background-color: #E2EEF7; height: 23px; padding-left: 5px; }
 
-.flag { display: inline-block; font-size: 9px; margin-top: 6px; border: 1px solid lightgrey; padding: 1px; color: lightgrey }
+.flag { display: inline-block; font-size: 9px; margin-top: 5px; border: 1px solid lightgrey; padding: 1px; color: lightgrey }
 
 .OFF { color: lightgrey }
 .WHI { color: darkslategrey; background-color: white }

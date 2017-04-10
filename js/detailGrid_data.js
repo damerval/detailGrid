@@ -8,37 +8,37 @@ var desktopSource = {
   dataFields: [
     { name: "offenderNumber", map: 'ofn', type: "int" },
     { name: "section", map: 'sct', type: "string" },
-    { name: "statusDate", map: 'sta>date', type: "date" },
-    { name: "arrivalDate", map: 'arr>date', type: "date" },
+    { name: "statusDate", map: 'sta', type: "date" },
+    { name: "arrivalDate", map: 'arr', type: "date" },
     { name: "offenderName", map: 'nam', type: "string" },
     { name: "offenderFullName", map: 'fna', type: "string" },
-    { name: "initialOMPDate", map: 'iod>date', type: "date" },
-    { name: "OMPUpdateDate", map: 'oud>date', type: "date" },
-    { name: "releaseDate", map:'rel>date', type: "date" },
-    { name: "LSISVDate", map: 'lsv>date', type: "date" },
+    { name: "initialOMPDate", map: 'iod', type: "date" },
+    { name: "OMPUpdateDate", map: 'oud', type: "date" },
+    { name: "releaseDate", map:'rel', type: "date" },
+    { name: "LSISVDate", map: 'lsv', type: "date" },
     { name: "LSISVEval", map: 'lse', type: "string" },
     { name: "LSISVScore", map: 'lss', type: "int" },
-    { name: "LSIRDate", map: 'lrd>date', type: "date" },
+    { name: "LSIRDate", map: 'lrd', type: "date" },
     { name: "LSIREval", map: 'lre', type: "string" },
     { name: "LSIRScore", map: 'lrs', type: "int" },
-    { name: "staticDate", map: 'scd>date', type: "date" },
+    { name: "staticDate", map: 'scd', type: "date" },
     { name: "staticScore", map: 'scs', type: "int" },
     { name: "IPO", map: 'ipo', type: "string" },
     { name: "IPOUserName", map: 'ipu', type: "string" },
     { name: "sexOffender", map: 'so', type: "string" },
     { name: "legalStatus", map: 'leg', type: "string" },
     { name: "custodyLevel", map: 'cus', type: "string" },
-    { name: "classificationDueDate", map: 'cdd>date', type: "date" },
+    { name: "classificationDueDate", map: 'cdd', type: "date" },
     { name: "location", map: 'loc', type: "string" },
-    { name: "paroleEligibilityDate", map: 'ped>date', type: "date" },
+    { name: "paroleEligibilityDate", map: 'ped', type: "date" },
     { name: "adminSegregation", map: 'asg', type: "string" },
-    { name: "furloughEligibility",map: 'fed>date',  type: "date" },
+    { name: "furloughEligibility",map: 'fed',  type: "date" },
     { name: "NOR", map: 'pnr', type: "string" },
     { name: "mandatoryParole", map: 'smp', type: "string" },
-    { name: "discretionaryParoleDate",map: 'pds>date',  type: "date" },
-    { name: "mandatoryParoleDate",map: 'pma>date',  type: "date" },
-    { name: "adminParoleDate",map: 'pad>date',  type: "date" },
-    { name: "geriatricParoleDate",map: 'pge>date',  type: "date" },
+    { name: "discretionaryParoleDate",map: 'pds',  type: "date" },
+    { name: "mandatoryParoleDate",map: 'pma',  type: "date" },
+    { name: "adminParoleDate",map: 'pad',  type: "date" },
+    { name: "geriatricParoleDate",map: 'pge',  type: "date" },
     { name: "mrFlag", map: 'fmr', type: "string" },
     { name: "adSegFlag", map: 'fas', type: "string" },
     { name: "lsisvFlag", map: 'fls', type: "string" },
@@ -50,8 +50,8 @@ var desktopSource = {
     { name: "victimFlag", map: 'vic', type: "string" }
   ],
   id: "offenderNumber",
-  url: "require/getDesktopData.php",
-  data: { "loc": "NODEFAULT"},
+  url: "http://localhost:8080/acoms/servlet/ompLsiData",
+  data: { "loc": "NOLOC"},
   pageSize: 20
 };
 
@@ -220,8 +220,28 @@ var _sortPicker;
 /* IPO options */
 var ipoList = ["NO IPO ASSIGNED", "ALL IPOs"];
 
-/* IPO picker widget */
+/* IPO picker widget & select event suppress flag */
 var _ipoPicker;
+var suppressIpoSelect;
 
 /* Variable to store the style for sort order highlighting in detail panels */
 var sortStyle;
+
+/* Store current location and IPO selections */
+var currentLocation;
+var currentIpo;
+
+function setCurrentLocation(val) {
+  currentLocation = val.trim();
+}
+function setCurrentIpo(val) {
+  currentIpo = val.trim();
+}
+function getCurrentLocation() {
+  return (undefined !== currentLocation) ? currentLocation : null;
+}
+function getCurrentIpo() {
+  return (undefined !== currentIpo) ? currentIpo : null;
+}
+
+var _printButton;

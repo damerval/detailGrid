@@ -76,6 +76,10 @@ var riskRenderer = function (row) {
   return "<DIV class=\"calcCell\">" + riskText + "</DIV>";
 };
 
+function setSuppressIpoSelect(val) {
+  suppressIpoSelect = val;
+}
+
 $(document).ready(function () {
 
   _detailGrid = $("#detailGrid");
@@ -83,6 +87,7 @@ $(document).ready(function () {
   desktopAdapter = new $.jqx.dataAdapter(desktopSource);
 
   _detailGrid.on('bindingcomplete', function () {
+    // run through records looking for distinct ipo names
     //alert("binding complete" + desktopAdapter.loadedData.length);
     var ipoOptions = [];
     for (var i = 0; i<desktopAdapter.loadedData.length; i++) {
@@ -91,35 +96,41 @@ $(document).ready(function () {
         ipoOptions.push(ipo.trim());
       }
     }
-    // sort and add new items
+    // clear ipo picker options, sort and join new items to default options
+    setSuppressIpoSelect(true);
     _ipoPicker.jqxDropDownList('clear');
     ipoOptions = ipoList.concat(ipoOptions.sort());
+    // Add result to ipo picker options
     for (i=0; i<ipoOptions.length; i++) {
       _ipoPicker.jqxDropDownList('addItem', ipoOptions[i]);
     }
+    _ipoPicker.jqxDropDownList('selectItem', getCurrentIpo());
+    setSuppressIpoSelect(false);
   });
 
   /* SETUP DETAIL GRID*/
   desktopColumns.push({ text: "Risk", cellsRenderer: riskRenderer, width: 32 });
   desktopColumns.push({ text: "Flags", cellsRenderer: flagsRenderer, width: 211 }); //dynamic flags column
   _detailGrid.jqxGrid({
-    source: desktopAdapter, columns: desktopColumns, theme: 'metro', width: 785, autoHeight: true, rowsHeight: 24,
+    source: desktopAdapter, columns: desktopColumns, theme: 'acoms', width: 785, autoHeight: true, rowsHeight: 23,
     rowdetails: true, rowdetailstemplate: { rowdetails: $("#dgDetailTemplate").html(), rowdetailsheight: 100 },
     initrowdetails: rowDetailsFunc/*, sortable: true*/, pageable: true, pagerMode: 'simple'
   });
 
   /* SETUP LOCATION PICKER */
-  _locationPicker = $("#locationPicker").jqxDropDownList({ width: 200, source: locations, theme: 'metro' });
+  _locationPicker = $("#locationPicker").jqxDropDownList({ width: 200, source: locations, theme: 'acoms' });
 
   /* SETUP SORT PICKER */
   var sortChoices = [];
   for (var i=0; i<sortOrders.length; i++) {
     sortChoices[i] = { "pickValue": sortOrders[i], "pickDesc": sortOrderLabels[i] };
   }
-  _sortPicker = $("#sortPicker").jqxDropDownList({ width: 200, theme: 'metro',
+  _sortPicker = $("#sortPicker").jqxDropDownList({ width: 200, theme: 'acoms',
     source: sortChoices, valueMember: 'pickValue', displayMember: 'pickDesc' });
 
   /* SETUP IPO PICKER*/
-  _ipoPicker = $("#ipoPicker").jqxDropDownList({ width: 200, source: ipoList, theme: 'metro' });
+  _ipoPicker = $("#ipoPicker").jqxDropDownList({ width: 200, source: ipoList, theme: 'acoms' });
+
+  _printButton = $("#printButton").jqxButton({ width: 120, height: 28, theme: 'acoms' })
 
 });
